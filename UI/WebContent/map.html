@@ -1,0 +1,131 @@
+<html>
+<head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    <title>Google Maps - pygmaps </title>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?libraries=visualization&sensor=true_or_false"></script>
+    <script type="text/javascript">
+	function initialize() {
+		var centerlatlng = new google.maps.LatLng(30.000000, 0.000000);
+		var myOptions = {
+			zoom: 3,
+			center: centerlatlng,
+			mapTypeId: google.maps.MapTypeId.ROADMAP
+		};
+		var map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+var heatmap_points = [
+new google.maps.LatLng(40.712775, -74.005973),
+new google.maps.LatLng(20.593684, 78.962880),
+new google.maps.LatLng(40.748600, -73.975667),
+new google.maps.LatLng(40.714077, -73.992030),
+new google.maps.LatLng(40.714077, -73.992030),
+new google.maps.LatLng(51.507351, -0.127758),
+new google.maps.LatLng(12.971599, 77.594563),
+new google.maps.LatLng(19.075984, 72.877656),
+new google.maps.LatLng(19.075984, 72.877656),
+new google.maps.LatLng(12.879721, 121.774017),
+new google.maps.LatLng(-0.789275, 113.921327),
+new google.maps.LatLng(20.593684, 78.962880),
+new google.maps.LatLng(28.613939, 77.209021),
+new google.maps.LatLng(13.631596, 74.689992),
+new google.maps.LatLng(28.474321, -81.467819),
+new google.maps.LatLng(30.733315, 76.779418),
+new google.maps.LatLng(30.284918, -97.734057),
+new google.maps.LatLng(23.215635, 72.636941),
+new google.maps.LatLng(20.593684, 78.962880),
+new google.maps.LatLng(31.450366, 73.134960),
+new google.maps.LatLng(42.129224, -80.085059),
+new google.maps.LatLng(33.952463, -117.584802),
+new google.maps.LatLng(14.599512, 120.984219),
+new google.maps.LatLng(39.074208, 21.824312),
+new google.maps.LatLng(39.074208, 21.824312),
+new google.maps.LatLng(10.371710, 79.851112),
+new google.maps.LatLng(33.518589, -86.810357),
+new google.maps.LatLng(12.971599, 77.594563),
+new google.maps.LatLng(12.971599, 77.594563),
+];
+var pointArray = new google.maps.MVCArray(heatmap_points);
+var heatmap;
+heatmap = new google.maps.visualization.HeatmapLayer({
+data: pointArray
+});
+heatmap.setMap(map);
+heatmap.set('threshold', 10);
+heatmap.set('radius', 20);
+heatmap.set('opacity', 0.600000);
+heatmap.set('dissipating', true);
+	}
+</script>
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <style>
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      #map {
+        height: 100%;
+      }
+      /* Optional: Makes the sample page fill the window. */
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+</head>
+<body style="margin:0px; padding:0px;" onload="initialize()">
+
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/WordSentiment">Sentiment for key word</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+            <form id="frmSearch" class="navbar-form navbar-left">
+                <div class="form-group">
+                    <input type="text" name="keyword" class="form-control" placeholder="Keyword">
+                </div>
+                <button type="submit" class="btn btn-default">Go</button>
+            </form>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#">Link</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Action</a></li>
+                        <li><a href="#">Another action</a></li>
+                        <li><a href="#">Something else here</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="#">Separated link</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+</nav>
+<div id="map_canvas" style="width: 100%; height: 100%;"></div>
+
+
+<script src="js/jquery.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="js/bootstrap.min.js"></script>
+
+<script src="js/sentiment.js"></script>
+</body>
+</html>
